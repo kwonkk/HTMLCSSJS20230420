@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <!-- 
+        form : 사용자로부터 특정정보를 받아 서버로 전달하는데 사용되는 태그
+        action속성 : 전달받는 서버 페이지(URL)
+        method속성 : 서버로 요청시 전달하는 방식
+        Get : 사용자정보를 Query String으로 전달(기본값)
+        Post : 사용자정보를 Request body(Payload) 로 전달
+     -->
+
+     <!-- 이름,나이,주소는 필수항목입니다.
+    패스워드 입력창을 하나만들고 길이는 10-18자 사이, 영문소문자/대문자/숫자/특수문자 중
+3개이상을 포함하도록 Pattern을 설정하고 만약 유효하지 않은 데이터가 입력되었을 때 
+메세지를 (영문소문자/대문자/숫자/특수문자 중
+3개이상 포함하고 길이는 10-18자 사이어야 합니다)를 표시합니다.  -->
+
+    <form action="test.jsp" method="get">
+        <div>
+            <label for="username">이름 :</label> <input type="text" name="username" id="username" required/>
+        </div>
+        <div>
+            <label for="age">나이 : </label> <input type="text" name="age" id="age" required  />
+        </div>
+        <div>
+            <label for="addr">주소 : </label><input type="text" name="addr" id="addr" required/>
+        </div>
+        <div>
+            <label for="">메일 : </label><input type="email" name="usermail" placeholder="example@example.com" disabled />
+        </div>
+        <div>
+            <label for="password"> PASSWORD : </label><input type="password" name="password" placeholder="Insert Password"
+            pattern="^(?=.[a-z])(?=.[A-Z])(?=.[!@#$%^&*()_+-=[]{}|;:,.<>?])(?=.[0-9]).{10,18}$" 
+            required oninvalid="this.setCustomValidity('영문소문자/대문자/특수문자/숫자중 3개이상 포함하고 길이는 10-18자 사이어야 합니다');"/>
+        </div>
+        <div>
+            TEL : <input pattern="[0]{1}[0-9]{2}-[0-9]{3,4}-[0-9]{4}" title="0xx-xxxx-xxxx에 맞게 입력하세요"
+            placeholder="0xx-xxxx-xxxx" required />
+        </div>
+        
+
+        
+       
+
+        <input type="submit" />
+    </form>
+
+</body>
+
+</html>
