@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            width: 3000px;
+        }
+        .container{
+            width: 150px;
+            height: 150px;
+            perspective: 1000px;
+            /* border: 1px solid; */
+            position: fixed;
+            left:0px; right:0px; top:0px; bottom:0px;
+            margin: auto;
+        }
+        .container>.card{
+            width: 150px;
+            height: 150px;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: 1s;
+            
+        }
+        
+        
+
+        .container>.card>.front,
+        .container>.card>.back{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            left: 0px;top: 0px;
+            /* rotaetY(180deg)일 때 숨김처리 */
+            backface-visibility: hidden;
+            border-radius:50%;
+        }
+
+        .container>.card>.front{
+            /* background-color: orange; */
+            background-image: url(https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRa0EOTXvO86w9jaqpx6CN98QetRPbuXqBlOA&usqp=CAU);
+            background-size:cover;
+            background-repeat: no-repeat;
+        }
+        .container>.card>.back{
+            background-color: royalblue;
+            /* back은 기본적으로 hidden처리 */
+            transform: rotateY(180deg);
+            font-size: 0.9rem;
+            color: white;
+            text-align: center;
+            display: flex;
+            align-items: center;
+        }
+        .container:hover .card{
+            transform: rotateY(180deg);
+        }
+
+
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="front"></div>
+            <div class="back">할인 이벤트 진행중!</div>
+        </div>
+    </div>
+</body>
+</html>
